@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: netteca
+  main:
+    allow-bean-definition-overriding: true
+    allow-circular-references: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/netteca
+    username: postgres
+    password: 123
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    show-sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    generate-ddl: true
+    defer-datasource-initialization: true
+server:
+  port: 8080
+  servlet:
+    context-path: /netteca
+

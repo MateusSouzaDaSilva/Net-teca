@@ -1,0 +1,14 @@
+version: '3.2'
+services:
+  database:
+    build:
+      context: ./database
+    image: netteca/database:latest
+    ports:
+      - 5432:5432
+    container_name: netteca_database
+    networks:
+      - backend
+networks:
+  backend:
+    driver: "bridge"
