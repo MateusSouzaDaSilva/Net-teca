@@ -15,6 +15,11 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     generate-ddl: true
     defer-datasource-initialization: true
+security:
+  jwt:
+    secret: bdx8W1lOwFSZQjQlMqGnvVe1OeC2k1Epgn9mnQMAW1eLu04dqrla72NTyJ70-vNP
+    expiration-ms: 900000
+
 server:
   port: 8080
   servlet:
