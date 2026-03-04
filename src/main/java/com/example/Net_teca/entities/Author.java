@@ -17,5 +17,5 @@ public class Author {
     private String name;
 
     @Column(nullable = false)
-    private String nacionality;
+    private String nationality;
 }

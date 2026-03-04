@@ -50,7 +50,8 @@ public class WebSecurityConfig {
                                 .requestMatchers(
                                         "/api/auth/**",
                                         "/api/ola",
-                                        "/api/test/all"     
+                                        "/api/test/all",
+                                    "/netteca/swagger-ui/"
                                 ).permitAll()
                                 // Qualquer outro endpoint exige autenticação
                                 .anyRequest().authenticated()
