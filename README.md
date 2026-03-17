@@ -67,4 +67,8 @@ Aqui está o progresso do projeto. Marquei o que já está implementado ou plane
 - [ ] Integração com email (Spring Mail para notificação de devolução)
 
 
-## Como rodar
+## UML
+
+![Diagrama de classes utilizado](./src/main/java/com/example/Net_teca/assets/UML/diagramaClasses.png)
+
+
