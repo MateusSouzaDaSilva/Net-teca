@@ -4,6 +4,8 @@ spring:
   main:
     allow-bean-definition-overriding: true
     allow-circular-references: true
+  jackson:
+    default-property-inclusion: non_null
   datasource:
     url: jdbc:postgresql://localhost:5432/netteca
     username: postgres

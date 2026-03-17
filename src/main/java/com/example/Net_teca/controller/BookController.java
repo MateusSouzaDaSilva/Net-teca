@@ -14,7 +14,6 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -90,6 +89,19 @@ public class BookController {
        bookService.deleteBook(id);
        return ResponseEntity.status(HttpStatus.OK) 
        .body(new MessageResponse("Book deleted successfully!"));
+   }
+
+   @GetMapping("/isAvailable")
+   @Operation(summary = "Check if book is available")
+   public ResponseEntity<AvailabilityCheckResponse> isAvailable(@RequestParam("isbn") String isbn) throws CustomException{
+
+    try {
+        Book book = bookService.isAvailable(isbn);
+        return ResponseEntity.ok(new AvailabilityCheckResponse(true, "Book is available", toBookListResponse(book)));
+    } catch (CustomException e) {
+        return ResponseEntity.ok(new AvailabilityCheckResponse(false, "Book is not available", null));
+    }
+
    }
 
 

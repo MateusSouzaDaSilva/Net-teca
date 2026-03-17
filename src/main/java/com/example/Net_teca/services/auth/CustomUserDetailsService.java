@@ -2,7 +2,7 @@ package com.example.Net_teca.services.auth;
 
 import com.example.Net_teca.entities.User;
 import com.example.Net_teca.repository.UserRepository;
-import io.jsonwebtoken.lang.Collections;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -15,14 +15,13 @@ public class CustomUserDetailsService  implements UserDetailsService {
     private UserRepository userRepository;
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findByName(username);
-        if (user == null) {
-            throw new UsernameNotFoundException("User Not Found with username: " + username);
-        }
+        User user = userRepository.findByName(username)
+                .orElseThrow(() -> new UsernameNotFoundException("User Not Found with username: " + username));
+
         return new org.springframework.security.core.userdetails.User(
                 user.getName(),
                 user.getPassword(),
-                Collections.emptyList()
+                java.util.Collections.emptyList()
         );
     }
 }

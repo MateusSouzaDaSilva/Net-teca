@@ -106,5 +106,16 @@ public class BookService {
        bookRepository.deleteById(id);
    }
 
+   @Transactional
+   public Book isAvailable(String isbn) throws CustomException {
+    Book book = bookRepository.findByIsbn(isbn).orElseThrow(() -> new CustomException("Book not found with ISBN: " + isbn));       
+    
+    if (!book.isAvailable()) {
+        throw new CustomException("Book is not available");
+    }   
+        
+       return book;
+   }
+
 
 }
