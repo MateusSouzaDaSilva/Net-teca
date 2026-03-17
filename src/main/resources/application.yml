@@ -8,8 +8,8 @@ spring:
     default-property-inclusion: non_null
   datasource:
     url: jdbc:postgresql://localhost:5432/netteca
-    username: postgres
-    password: 123
+    username: ${DB_USER:postgres}
+    password: ${DB_PASSWORD:123}
     driver-class-name: org.postgresql.Driver
   jpa:
     show-sql: true
@@ -19,11 +19,10 @@ spring:
     defer-datasource-initialization: true
 security:
   jwt:
-    secret: bdx8W1lOwFSZQjQlMqGnvVe1OeC2k1Epgn9mnQMAW1eLu04dqrla72NTyJ70-vNP
+    secret: ${JWT_SECRET:bdx8W1lOwFSZQjQlMqGnvVe1OeC2k1Epgn9mnQMAW1eLu04dqrla72NTyJ70-vNP}
     expiration-ms: 900000
 
 server:
   port: 8080
   servlet:
     context-path: /netteca
-
